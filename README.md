@@ -1,4 +1,4 @@
-# PetShop
-Criando um e-commerce, esse é o front-end simples
+# PetShop (esse petShop não existe so criei, para usar de base)
+Criando um e-commerce, Front-end simples
 
 
