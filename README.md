@@ -2,4 +2,5 @@
 Criando um e-commerce, Front-end simples
 
 
-Fiz um sistema de carrinho via ajax
+Sitema de carrinho via ajax.
+Sistema de compras via pagseguro.
