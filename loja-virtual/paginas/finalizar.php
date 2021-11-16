@@ -14,6 +14,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <title>Finalizar pagamentos</title>
 </head>
+<base base="<?php echo INCLUDE_PATH;?>" />
 <body>
     <header>
     <nav class="navBar">
@@ -25,6 +26,7 @@
         <div style="clear: both;"></div>
     </header>
     <div class="container">
+    <div class="aviso-compra"></div>
         <table>
             <tr>
             <td>Produtos</td>
@@ -32,25 +34,34 @@
             <td>Preço</td>
             </tr>
             <?php 
-                $total = 0;
-                foreach ($_SESSION['carrinho'] as $key => $value) {
-                    $preco = $value['precoProduto'] * $value['quantidadeProduto'];
-                    $total += $preco;
+                if(isset($_SESSION['carrinho'])){
+                    $total = 0;
+                    foreach ($_SESSION['carrinho'] as $key => $value) {
+                        $preco = $value['precoProduto'] * $value['quantidadeProduto'];
+                        $total += $preco;
             ?>
             <tr>
                 <td><?php echo $key?></td>
                 <td><?php echo $value["quantidadeProduto"]?></td>
                 <td><?php echo $preco?>$</td>
             </tr>
-            <?php }?>
+            <?php }}else{
+                echo '<div class="aviso">Você não tem nada no carrinho!</div>';
+            } ?>
         </table>
+        <?php if(isset($_SESSION['carrinho'])){?>
         <div class="pagar">
             <div class="buttom-preco">Preço total das compras <span><?php echo $total?>$</span></div>
             <div class="buttom-pagar">
-                <a href="">Pagar agora</a>
+                <a class="pagarAgora" href="">Pagar agora</a>
             </div>
         </div>
         <div style="clear: both;"></div>
+        <?php } ?>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="<?php echo URL?>pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+    <script src="../assets/javaScript/contantes.js"></script>
+    <script src="../assets/javaScript/script.js"></script>
 </body>
 </html>

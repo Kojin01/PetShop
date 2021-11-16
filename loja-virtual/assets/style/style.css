@@ -111,7 +111,22 @@ table tr td{
 	text-decoration: none;
 }
 .buttom-pagar a:hover{
-	padding: 10px 30px;
+	padding: 10px 69px;
 	color: white;
 	text-decoration: underline;
+}
+.aviso{
+	text-align: center;
+	background-color: orange;
+	color: white;
+	padding: 10px;
+	font-size: 25px;
+}
+.aviso-compra{
+	background-color: orange;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-size: 25px;
+	display: none;
 }

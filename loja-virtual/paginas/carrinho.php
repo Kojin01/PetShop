@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../assets/style/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <title>Finalizar pagamentos</title>
+    <title>Carrinho</title>
 </head>
 <body>
     <header>
@@ -32,17 +32,20 @@
             <td>Preço</td>
             </tr>
             <?php 
-                $total = 0;
-                foreach ($_SESSION['carrinho'] as $key => $value) {
-                    $preco = $value['precoProduto'] * $value['quantidadeProduto'];
-                    $total += $preco;
+                if(isset($_SESSION['carrinho'])){
+                    $total = 0;
+                    foreach ($_SESSION['carrinho'] as $key => $value) {
+                        $preco = $value['precoProduto'] * $value['quantidadeProduto'];
+                        $total += $preco;
             ?>
             <tr>
                 <td><?php echo $key?></td>
                 <td><?php echo $value["quantidadeProduto"]?></td>
                 <td><?php echo $preco?>$</td>
             </tr>
-            <?php }?>
+            <?php }}else{
+                echo '<div class="aviso">Você não tem nada no carrinho!</div>';
+            } ?>
         </table>
         <div class="pagar">
             <div class="buttom-preco">Preço total das compras <span><?php echo $total?>$</span></div>
